@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edwar Morales — Senior Software Engineer (C#/.NET · Node.js/TypeScript · React)</title>
+<meta name="description" content="Portafolio de Edwar Morales, Senior Software Engineer con más de 12 años de experiencia. / Portfolio of Edwar Morales, Senior Software Engineer with 12+ years of experience.">
+<style>
+  :root{
+    --bg:#f7f8fa; --surface:#ffffff; --text:#1c2430; --muted:#5a6676; --line:#e3e7ee;
+    --accent:#0f766e; --accent-soft:#e1f3f1; --tag:#eef1f6; --shadow:0 1px 2px rgba(16,24,40,.05),0 4px 14px rgba(16,24,40,.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f141b; --surface:#161d27; --text:#e7ecf3; --muted:#9aa7b8; --line:#243040;
+      --accent:#4fd1c5; --accent-soft:#12302f; --tag:#1d2735; --shadow:none;
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+
+  /* language switching: only the active language is shown */
+  html[lang="es"] [lang="en"]{display:none !important}
+  html[lang="en"] [lang="es"]{display:none !important}
+
+  header.top{border-bottom:1px solid var(--line);background:var(--surface)}
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:12px}
+  .brand{font-weight:700;letter-spacing:-.01em}
+  .lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+  .lang button{border:0;background:transparent;color:var(--muted);padding:6px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+  .lang button[aria-pressed="true"]{background:var(--accent);color:#fff}
+  .lang button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .hero{padding:56px 0 40px}
+  .hero h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:0 0 10px;letter-spacing:-.02em}
+  .hero .role{font-size:1.15rem;color:var(--accent);font-weight:600;margin:0 0 18px}
+  .hero p.lead{max-width:720px;color:var(--muted);font-size:1.05rem;margin:0 0 22px}
+  .cta{display:flex;flex-wrap:wrap;gap:10px}
+  .btn{display:inline-block;padding:10px 18px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-weight:600;font-size:.95rem}
+  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+  .btn:hover{text-decoration:none;filter:brightness(1.05)}
+  .meta{margin-top:18px;color:var(--muted);font-size:.92rem}
+
+  section{padding:34px 0}
+  section h2{font-size:1.4rem;margin:0 0 6px;letter-spacing:-.01em}
+  section .sub{margin:0 0 22px;color:var(--muted)}
+
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+  .skill{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+  .skill h3{margin:0 0 10px;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+  .pills{display:flex;flex-wrap:wrap;gap:6px}
+  .pill{background:var(--tag);border-radius:999px;padding:3px 10px;font-size:.82rem}
+
+  .highlights{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .hl{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+  .hl h3{margin:0 0 6px;font-size:1rem}
+  .hl p{margin:0;color:var(--muted);font-size:.95rem}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+  .card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+  .card .kind{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);font-weight:700;margin-bottom:6px}
+  .card h3{margin:0 0 8px;font-size:1.1rem}
+  .card p{margin:0 0 12px;color:var(--muted);font-size:.94rem}
+  .card ul{margin:0 0 14px;padding-left:18px;color:var(--muted);font-size:.92rem}
+  .card li{margin:2px 0}
+  .card .pills{margin-top:auto;margin-bottom:14px}
+  .card .repo{font-weight:600;font-size:.92rem}
+
+  footer{border-top:1px solid var(--line);margin-top:30px;padding:26px 0 40px;color:var(--muted);font-size:.9rem}
+  footer .row{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap bar">
+    <span class="brand">Edwar Morales</span>
+    <div class="lang" role="group" aria-label="Language / Idioma">
+      <button type="button" data-set="es" aria-pressed="true">ES</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <h1>Edwar Morales</h1>
+      <p class="role">Senior Software Engineer · C#/.NET · Node.js/TypeScript · React</p>
+      <p class="lead">
+        <span lang="es">Más de 12 años construyendo software en banca, servicios financieros y SaaS: APIs REST, microservicios y arquitecturas orientadas a eventos. Más de 7 años con C#/.NET y experiencia reciente en Node.js, TypeScript y React.</span>
+        <span lang="en">12+ years building software in banking, financial services and SaaS: REST APIs, microservices and event-driven architectures. 7+ years with C#/.NET and recent experience in Node.js, TypeScript and React.</span>
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="mailto:edwar@sibrian.co">
+          <span lang="es">Escríbeme</span><span lang="en">Get in touch</span>
+        </a>
+        <a class="btn" href="https://github.com/edwarsibrian" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="meta">
+        <span lang="es">San Salvador, El Salvador · Disponible para trabajo remoto (contractor) · Inglés B2 · edwar@sibrian.co</span>
+        <span lang="en">San Salvador, El Salvador · Available for remote work (contractor) · English B2 · edwar@sibrian.co</span>
+      </p>
+    </div>
+
+    <!-- EXPERIENCE HIGHLIGHTS -->
+    <section id="experience">
+      <h2><span lang="es">Experiencia destacada</span><span lang="en">Experience highlights</span></h2>
+      <p class="sub">
+        <span lang="es">Trabajo profesional en entornos de alta transaccionalidad y disponibilidad crítica.</span>
+        <span lang="en">Professional work in high-volume, availability-critical environments.</span>
+      </p>
+      <div class="highlights">
+        <div class="hl">
+          <h3>Banco Atlántida</h3>
+          <p>
+            <span lang="es">Lideré la arquitectura de una plataforma de firma digital con autenticación JWT y la integración de servicios VISA VTC.</span>
+            <span lang="en">Led the architecture of a digital signature platform with JWT authentication and the integration of VISA VTC services.</span>
+          </p>
+        </div>
+        <div class="hl">
+          <h3>Saongroup</h3>
+          <p>
+            <span lang="es">Diseñé e implementé microservicios con CQRS y arquitectura orientada a eventos, procesamiento asíncrono con RabbitMQ y pipelines de CI/CD con Docker.</span>
+            <span lang="en">Designed and built microservices with CQRS and event-driven architecture, asynchronous processing with RabbitMQ and CI/CD pipelines with Docker.</span>
+          </p>
+        </div>
+        <div class="hl">
+          <h3><span lang="es">Modernización e integraciones</span><span lang="en">Modernization &amp; integrations</span></h3>
+          <p>
+            <span lang="es">Migración de .NET Framework a .NET Core, optimización de consultas en SQL Server e integraciones enterprise (SAP Business One, ISO 8583).</span>
+            <span lang="en">.NET Framework to .NET Core migration, SQL Server query optimization and enterprise integrations (SAP Business One, ISO 8583).</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2><span lang="es">Stack técnico</span><span lang="en">Tech stack</span></h2>
+      <p class="sub">
+        <span lang="es">Lo que uso en producción y en mis proyectos de portafolio.</span>
+        <span lang="en">What I use in production and in my portfolio projects.</span>
+      </p>
+      <div class="skills">
+        <div class="skill">
+          <h3>Backend</h3>
+          <div class="pills">
+            <span class="pill">C#</span><span class="pill">.NET 9 / .NET Core</span><span class="pill">ASP.NET MVC / Web API</span>
+            <span class="pill">Entity Framework Core</span><span class="pill">Dapper</span><span class="pill">Node.js</span>
+            <span class="pill">NestJS</span><span class="pill">PHP / Symfony</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h3><span lang="es">Arquitectura</span><span lang="en">Architecture</span></h3>
+          <div class="pills">
+            <span class="pill">Clean Architecture</span><span class="pill">Hexagonal</span><span class="pill">CQRS / MediatR</span>
+            <span class="pill">Microservices</span><span class="pill">Event-driven</span><span class="pill">RabbitMQ</span>
+            <span class="pill">REST APIs</span><span class="pill">JWT</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h3><span lang="es">Datos</span><span lang="en">Data</span></h3>
+          <div class="pills">
+            <span class="pill">SQL Server</span><span class="pill">Oracle</span><span class="pill">MySQL</span>
+            <span class="pill">Elasticsearch</span><span class="pill">Redis</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h3>Frontend</h3>
+          <div class="pills">
+            <span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Vite</span>
+            <span class="pill">React Router</span><span class="pill">Leaflet</span><span class="pill">Bootstrap</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h3>DevOps &amp; Cloud</h3>
+          <div class="pills">
+            <span class="pill">Docker</span><span class="pill">GitHub Actions</span><span class="pill">Azure DevOps</span>
+            <span class="pill">Azure Blob Storage</span><span class="pill">Serilog + Kibana</span>
+          </div>
+        </div>
+        <div class="skill">
+          <h3><span lang="es">Calidad</span><span lang="en">Quality</span></h3>
+          <div class="pills">
+            <span class="pill">xUnit</span><span class="pill">NUnit</span><span class="pill">Jest</span>
+            <span class="pill">PHPUnit</span><span class="pill">FluentValidation</span><span class="pill">Polly</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2><span lang="es">Proyectos</span><span lang="en">Projects</span></h2>
+      <p class="sub">
+        <span lang="es">Código abierto en GitHub, con README, instrucciones de ejecución y decisiones de arquitectura documentadas.</span>
+        <span lang="en">Open source on GitHub, with READMEs, run instructions and documented architecture decisions.</span>
+      </p>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="kind">Backend · Node.js</div>
+          <h3>Product Search API</h3>
+          <p>
+            <span lang="es">API de búsqueda de productos con arquitectura hexagonal (puertos y adaptadores): búsqueda por relevancia, autocompletado, filtros y facetas multi-selección.</span>
+            <span lang="en">Product search API with hexagonal architecture (ports &amp; adapters): relevance ranking, autocomplete, filters and multi-select faceting.</span>
+          </p>
+          <ul>
+            <li><span lang="es">Elasticsearch para búsqueda y ranking; Redis como caché cache-aside que nunca rompe la API si falla.</span><span lang="en">Elasticsearch for search and ranking; Redis as a cache-aside layer that never breaks the API on failure.</span></li>
+            <li><span lang="es">Pruebas unitarias (puertos simulados) y e2e con índice aislado, más CI en GitHub Actions.</span><span lang="en">Unit tests (fake ports) and e2e tests on an isolated index, plus CI on GitHub Actions.</span></li>
+            <li><span lang="es">Colección de Postman y entorno Docker listos para usar.</span><span lang="en">Ready-to-use Postman collection and Docker environment.</span></li>
+          </ul>
+          <div class="pills"><span class="pill">NestJS</span><span class="pill">TypeScript</span><span class="pill">Elasticsearch</span><span class="pill">Redis</span><span class="pill">Docker</span><span class="pill">Jest</span></div>
+          <a class="repo" href="https://github.com/edwarsibrian/product-search-api" target="_blank" rel="noopener">edwarsibrian/product-search-api →</a>
+        </article>
+
+        <article class="card">
+          <div class="kind">Backend · .NET</div>
+          <h3>Movies.API</h3>
+          <p>
+            <span lang="es">API en ASP.NET Core con Clean/Onion Architecture, CQRS con MediatR y foco en observabilidad y resiliencia.</span>
+            <span lang="en">ASP.NET Core API with Clean/Onion Architecture, CQRS with MediatR and a focus on observability and resilience.</span>
+          </p>
+          <ul>
+            <li><span lang="es">Validación con FluentValidation, mapeo con AutoMapper y acceso a datos con EF Core.</span><span lang="en">FluentValidation, AutoMapper and EF Core data access.</span></li>
+            <li><span lang="es">Mensajería asíncrona con RabbitMQ, reintentos con Polly y almacenamiento en Azure Blob Storage.</span><span lang="en">Asynchronous messaging with RabbitMQ, Polly retries and Azure Blob Storage.</span></li>
+            <li><span lang="es">Health checks (con UI) y logging centralizado con Serilog, Elasticsearch y Kibana vía Docker Compose.</span><span lang="en">Health checks (with UI) and centralized logging with Serilog, Elasticsearch and Kibana via Docker Compose.</span></li>
+          </ul>
+          <div class="pills"><span class="pill">ASP.NET Core</span><span class="pill">EF Core</span><span class="pill">MediatR</span><span class="pill">RabbitMQ</span><span class="pill">Azure Blob</span><span class="pill">Polly</span><span class="pill">Docker</span></div>
+          <a class="repo" href="https://github.com/edwarsibrian/Movies.API" target="_blank" rel="noopener">edwarsibrian/Movies.API →</a>
+        </article>
+
+        <article class="card">
+          <div class="kind">Frontend · React</div>
+          <h3>Movies.React</h3>
+          <p>
+            <span lang="es">Cliente web de un sistema de registro de películas que consume Movies.API: películas por género, actores y salas de cine.</span>
+            <span lang="en">Web client for a movie registration system that consumes Movies.API: movies by genre, actors and cinema halls.</span>
+          </p>
+          <ul>
+            <li><span lang="es">Formularios con React Hook Form + Yup, mapas interactivos con Leaflet y enrutamiento con React Router.</span><span lang="en">Forms with React Hook Form + Yup, interactive maps with Leaflet and routing with React Router.</span></li>
+          </ul>
+          <div class="pills"><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Vite</span><span class="pill">Axios</span><span class="pill">Leaflet</span><span class="pill">Bootstrap</span></div>
+          <a class="repo" href="https://github.com/edwarsibrian/movies.react" target="_blank" rel="noopener">edwarsibrian/movies.react →</a>
+        </article>
+
+        <article class="card">
+          <div class="kind">Full stack · .NET + React</div>
+          <h3>Bob's Corn</h3>
+          <p>
+            <span lang="es">Aplicación full stack donde cada cliente puede comprar maíz con un límite de 1 por minuto.</span>
+            <span lang="en">Full-stack app where each client can buy corn with a rate limit of 1 per minute.</span>
+          </p>
+          <ul>
+            <li><span lang="es">Clean Architecture en .NET 9 con CQRS, validación mediante pipeline de MediatR y manejador global de excepciones.</span><span lang="en">Clean Architecture on .NET 9 with CQRS, validation through a MediatR pipeline and a global exception handler.</span></li>
+            <li><span lang="es">Dapper sobre SQL Server; identidad de cliente vía cabecera X-Client-Id. Mejoras futuras documentadas (rate limiting distribuido con Redis).</span><span lang="en">Dapper over SQL Server; client identity via the X-Client-Id header. Documented next steps (distributed rate limiting with Redis).</span></li>
+          </ul>
+          <div class="pills"><span class="pill">.NET 9</span><span class="pill">MediatR</span><span class="pill">Dapper</span><span class="pill">SQL Server</span><span class="pill">React</span><span class="pill">TypeScript</span></div>
+          <a class="repo" href="https://github.com/edwarsibrian/bobs-corn" target="_blank" rel="noopener">edwarsibrian/bobs-corn →</a>
+        </article>
+
+        <article class="card">
+          <div class="kind">Full stack · .NET + React</div>
+          <h3>ISR Route Optimization</h3>
+          <p>
+            <span lang="es">Aplicación para que representantes de ventas planifiquen el mejor orden para visitar a sus leads, minimizando la distancia total.</span>
+            <span lang="en">Web app that helps inside sales reps plan the best order to visit their leads, minimizing total travel distance.</span>
+          </p>
+          <ul>
+            <li><span lang="es">Carga de leads por CSV, dirección de origen elegida en un mapa interactivo y visualización de la ruta optimizada.</span><span lang="en">CSV lead upload, home address picked on an interactive map and optimized route visualization.</span></li>
+            <li><span lang="es">Backend con Clean Architecture, CQRS y pruebas con NUnit; frontend React organizado por features.</span><span lang="en">Clean Architecture backend with CQRS and NUnit tests; feature-based React frontend.</span></li>
+          </ul>
+          <div class="pills"><span class="pill">ASP.NET Core</span><span class="pill">MediatR</span><span class="pill">NUnit</span><span class="pill">React</span><span class="pill">TypeScript</span><span class="pill">Leaflet</span></div>
+          <a class="repo" href="https://github.com/edwarsibrian/full-stack-test-ISR-route-optimization" target="_blank" rel="noopener">edwarsibrian/full-stack-test-ISR-route-optimization →</a>
+        </article>
+
+        <article class="card">
+          <div class="kind">Data · PHP / Symfony</div>
+          <h3>User Data ETL Service</h3>
+          <p>
+            <span lang="es">Servicio ETL en Symfony que extrae usuarios de una API externa, genera reportes JSON/CSV, los guarda en MySQL y cifra los archivos generados.</span>
+            <span lang="en">Symfony ETL service that extracts users from an external API, generates JSON/CSV reports, persists them in MySQL and encrypts the generated files.</span>
+          </p>
+          <ul>
+            <li><span lang="es">Cifrado AES-256-CBC con OpenSSL y endpoints REST para consultar las ejecuciones.</span><span lang="en">AES-256-CBC encryption with OpenSSL and REST endpoints to query executions.</span></li>
+            <li><span lang="es">Pruebas con PHPUnit y CI en GitHub Actions.</span><span lang="en">PHPUnit tests and CI on GitHub Actions.</span></li>
+          </ul>
+          <div class="pills"><span class="pill">PHP 8.2</span><span class="pill">Symfony 7</span><span class="pill">MySQL</span><span class="pill">PHPUnit</span><span class="pill">GitHub Actions</span></div>
+          <a class="repo" href="https://github.com/edwarsibrian/user-data-etl-service" target="_blank" rel="noopener">edwarsibrian/user-data-etl-service →</a>
+        </article>
+
+        <article class="card">
+          <div class="kind">Data · PHP / Symfony</div>
+          <h3>User Data Dashboard</h3>
+          <p>
+            <span lang="es">Dashboard en Symfony que consume la API del servicio ETL para mostrar el historial de ejecuciones y métricas resumen.</span>
+            <span lang="en">Symfony dashboard that consumes the ETL service API to show execution history and summary metrics.</span>
+          </p>
+          <ul>
+            <li><span lang="es">Gráficos con Chart.js (distribución por género y por rol).</span><span lang="en">Chart.js charts (distribution by gender and by role).</span></li>
+            <li><span lang="es">Registro, inicio de sesión y acceso protegido con autenticación por sesión.</span><span lang="en">Sign-up, login and protected access with session-based authentication.</span></li>
+          </ul>
+          <div class="pills"><span class="pill">PHP 8.2</span><span class="pill">Symfony 7</span><span class="pill">Twig</span><span class="pill">Chart.js</span></div>
+          <a class="repo" href="https://github.com/edwarsibrian/user-data-dashboard" target="_blank" rel="noopener">edwarsibrian/user-data-dashboard →</a>
+        </article>
+
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span>© <span id="yr">2026</span> Edwar Morales · San Salvador, El Salvador</span>
+    <span><a href="mailto:edwar@sibrian.co">edwar@sibrian.co</a> · <a href="https://github.com/edwarsibrian" target="_blank" rel="noopener">GitHub</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var html = document.documentElement;
+  var buttons = document.querySelectorAll('.lang button');
+
+  function apply(lang) {
+    html.setAttribute('lang', lang);
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-set') === lang));
+    });
+    document.title = lang === 'es'
+      ? 'Edwar Morales — Senior Software Engineer (C#/.NET · Node.js/TypeScript · React)'
+      : 'Edwar Morales — Senior Software Engineer (C#/.NET · Node.js/TypeScript · React)';
+  }
+
+  function initial() {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q === 'es' || q === 'en') return q;
+    try {
+      var saved = localStorage.getItem('portfolio-lang');
+      if (saved === 'es' || saved === 'en') return saved;
+    } catch (e) {}
+    var nav = (navigator.language || 'es').toLowerCase();
+    return nav.indexOf('en') === 0 ? 'en' : 'es';
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var lang = b.getAttribute('data-set');
+      apply(lang);
+      try { localStorage.setItem('portfolio-lang', lang); } catch (e) {}
+    });
+  });
+
+  apply(initial());
+  var yr = document.getElementById('yr');
+  if (yr) yr.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
